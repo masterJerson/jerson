@@ -1,7 +1,12 @@
 <?php
+session_start();
 
 require_once('../dao/config.php');
 require_once('../dao/crudDAO.php');
+$lvl = $_SESSION['lvl'];
+if($lvl == null){
+	header('Location: ../pages/index.php');
+}
 
 $list = crudDAO::read();
 
